@@ -150,18 +150,19 @@ gulp.task('css:dev', function() {
  *
  **********************************************************************************************************************/
 
-gulp.task('webpack', function() {
-return gulp.src('src/entry.js')
-  .pipe(webpack( require('./webpack.config.js') ))
-  .pipe(gulp.dest(path.build.js));
+gulp.task('js:build', function() {
+    process.env.NODE_ENV = 'production';
+    return gulp.src('')
+        .pipe(webpack( require('./webpack.config.js') ))
+        .pipe(gulp.dest(path.build.js));
 });
 
-gulp.task('webpack:watch', function() {
-return gulp.src('src/entry.js')
-  .pipe(webpack( require('./webpack.config.js'),{watch: true} ))
-  .pipe(gulp.dest(path.build.js));
+gulp.task('js', function() {
+    process.env.NODE_ENV = 'dev';
+    return gulp.src('')
+    .pipe(webpack( require('./webpack.config.js') ))
+    .pipe(gulp.dest(path.build.js));
 });
-
 /***********************************************************************************************************************
  * Task: Test by karma
  ***********************************************************************************************************************

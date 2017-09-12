@@ -72,7 +72,7 @@
  /**
  * For prod mode uglify js 
  */
- if(NODE_ENV === 'prod'){
+ if(NODE_ENV === 'production'){
       module.exports.plugins.push(
          new webpack.optimize.UglifyJsPlugin({
              warning: false,
